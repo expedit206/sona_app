@@ -10,7 +10,7 @@
         </p>
         <div class="hero-buttons">
           <router-link to="/services" class="btn btn-primary">Découvrir nos soins</router-link>
-          <router-link to="/products" class="btn btn-secondary">Voir nos produits</router-link>
+          <!-- <router-link to="/products" class="btn btn-secondary">Voir nos produits</router-link> -->
         </div>
       </div>
     </section>
@@ -28,8 +28,13 @@
 
     <!-- Section Services et Produits -->
     <section class="container services-products">
+      <h2 class="section-title">Nos expertises</h2>
       <div class="sections">
         <div class="card">
+          <div class="card-image"
+            style="background: url('/public/img/masse-do.jpg') no-repeat center center; background-size: cover;">
+            ">
+          </div>
           <h2>Kinésithérapie</h2>
           <p>
             Des soins professionnels adaptés à vos besoins : rééducation, massages thérapeutiques, et consultations à
@@ -38,6 +43,9 @@
           <router-link to="/services" class="btn btn-primary">En savoir plus</router-link>
         </div>
         <div class="card">
+          <div class="card-image"
+            style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop');">
+          </div>
           <h2>Produits médicinaux</h2>
           <p>
             Découvrez notre gamme de remèdes naturels, comme le sirop de citron pour renforcer l’immunité ou la poudre
@@ -52,15 +60,17 @@
     <section class="container testimonials">
       <h2 class="section-title">Ce que disent nos clients</h2>
       <div class="testimonial-grid">
-        <div class="card">
+        <div class="card testimonial-card">
+          <span class="quote-icon">“</span>
           <p class="quote">
-            "Les séances de kinésithérapie m’ont redonné une mobilité que je pensais perdue. Merci Sona !"
+            Les séances de kinésithérapie m’ont redonné une mobilité que je pensais perdue. Merci Sona !
           </p>
           <p class="author">— Marie, 45 ans</p>
         </div>
-        <div class="card">
+        <div class="card testimonial-card">
+          <span class="quote-icon">“</span>
           <p class="quote">
-            "Le sirop de citron est incroyable pour renforcer mon système immunitaire, surtout en hiver."
+            Le sirop de citron est incroyable pour renforcer mon système immunitaire, surtout en hiver.
           </p>
           <p class="author">— Paul, 32 ans</p>
         </div>
@@ -79,29 +89,35 @@
   /* Vert foncé */
   color: #FFFFFF;
   /* Blanc */
-  padding: 60px 20px;
+  padding: 80px 20px;
   text-align: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=2070&auto=format&fit=crop');
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url('/public/img/ed6ad2db60dd3d9f18c0fd932f90990fgenoux.jpg') no-repeat center center;
   background-size: cover;
   background-position: center;
+  position: relative;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
 }
 
 .hero-content {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
 .hero-title {
-  font-size: 3rem;
-  margin-bottom: 15px;
+  font-size: 3.5rem;
+  margin-bottom: 20px;
   font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero-subtitle {
-  font-size: 1.3rem;
-  margin-bottom: 30px;
+  font-size: 1.4rem;
+  margin-bottom: 40px;
   line-height: 1.6;
+  opacity: 0.9;
 }
 
 .hero-buttons {
@@ -110,67 +126,152 @@
   gap: 20px;
 }
 
-/* Sections générales */
-.section-title {
-  font-size: 2rem;
-  margin-bottom: 20px;
+/* Section À propos rapide */
+.about-section {
+  padding: 60px 20px;
+  background-color: #FFFFFF;
+  /* Blanc */
   text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+  color: #4A704B;
+  text-align: center;
+  /* Vert foncé */
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  width: 60px;
+  height: 3px;
+  background-color: #C8102E;
+  /* Rouge */
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .section-text {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: #666;
-  text-align: center;
-  margin-bottom: 20px;
-  line-height: 1.6;
+  margin-bottom: 30px;
+  line-height: 1.7;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Services et Produits */
+/* Section Services et Produits */
 .services-products {
-  padding: 40px 0;
+  padding: 60px 20px;
+  background-color: #F5F5F5;
+  /* Blanc cassé léger */
 }
 
 .sections {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  gap: 40px;
+}
+
+.card {
+  background-color: #FFFFFF;
+  /* Blanc */
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px 12px 0 0;
 }
 
 .card h2 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
+  font-size: 1.6rem;
+  margin: 20px 20px 10px;
   color: #4A704B;
+  /* Vert foncé */
 }
 
 .card p {
   font-size: 1rem;
   color: #666;
-  margin-bottom: 20px;
+  margin: 0 20px 20px;
+  line-height: 1.6;
 }
 
-/* Témoignages */
+/* Section Témoignages */
 .testimonials {
-  padding: 40px 0;
-  background-color: #F5F5F5;
-  /* Blanc cassé léger */
+  padding: 60px 20px;
+  background-color: #FFFFFF;
+  /* Blanc */
 }
 
 .testimonial-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  gap: 40px;
+}
+
+.testimonial-card {
+  background-color: #FFFFFF;
+  /* Blanc */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 2px solid #4A704B;
+  /* Vert foncé */
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.quote-icon {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-size: 3rem;
+  color: #4A704B;
+  /* Vert foncé */
+  opacity: 0.2;
 }
 
 .quote {
   font-style: italic;
-  color: #666;
-  margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: #333;
+  /* Gris foncé pour contraste */
+  margin-bottom: 15px;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
 }
 
 .author {
   font-weight: 500;
+  font-size: 1rem;
   color: #C8102E;
   /* Rouge */
+  text-align: right;
 }
 
 /* Boutons */
@@ -179,26 +280,30 @@
   /* Vert foncé */
   color: #FFFFFF;
   /* Blanc */
-  padding: 10px 20px;
+  padding: 12px 25px;
   border-radius: 5px;
   text-decoration: none;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+  margin: 0 20px 20px;
 }
 
 .btn-primary:hover {
   background-color: #C8102E;
   /* Rouge */
+  transform: scale(1.05);
 }
 
 .btn-secondary {
   background-color: transparent;
-  color: #4A704B;
+  color: #260f0f;
   /* Vert foncé */
   border: 2px solid #4A704B;
-  padding: 10px 20px;
+  padding: 10px 15px !important;
   border-radius: 5px;
   text-decoration: none;
   transition: all 0.3s ease;
+  display: inline-block;
 }
 
 .btn-secondary:hover {
@@ -207,29 +312,63 @@
   color: #FFFFFF;
   /* Blanc */
   border-color: #C8102E;
+  transform: scale(1.05);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
+  .hero {
+    padding: 60px 20px;
+    min-height: 400px;
+  }
+
   .hero-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 
   .hero-subtitle {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 
   .hero-buttons {
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-text {
+    font-size: 1.1rem;
   }
 
   .sections {
     grid-template-columns: 1fr;
   }
 
+  .card-image {
+    height: 150px;
+  }
+
+  .card h2 {
+    font-size: 1.4rem;
+  }
+
+  .card p {
+    font-size: 0.95rem;
+  }
+
   .testimonial-grid {
     grid-template-columns: 1fr;
+  }
+
+  .quote {
+    font-size: 1rem;
+  }
+
+  .quote-icon {
+    font-size: 2.5rem;
   }
 }
 </style>
