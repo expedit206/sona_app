@@ -32,7 +32,7 @@
       <div class="sections">
         <div class="card">
           <div class="card-image"
-            style="background: url('/public/img/masse-do.jpg') no-repeat center center; background-size: cover;">
+            style="background: url('/img/masse-do.jpg') no-repeat center center; background-size: cover;">
             ">
           </div>
           <h2>Kinésithérapie</h2>
@@ -43,8 +43,7 @@
           <router-link to="/services" class="btn btn-primary">En savoir plus</router-link>
         </div>
         <div class="card">
-          <div class="card-image"
-            style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop');">
+          <div class="card-image" style="background: url('/public/img/cacao-cabos.jpg')  no-repeat center/cover ">
           </div>
           <h2>Produits médicinaux</h2>
           <p>
@@ -91,8 +90,10 @@
   /* Blanc */
   padding: 80px 20px;
   text-align: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url('/public/img/ed6ad2db60dd3d9f18c0fd932f90990fgenoux.jpg') no-repeat center center;
+  /* background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url('/public/img/ecail.jpg') no-repeat center/contain; */
+  background: linear-gradient(rgba(39, 38, 38, 0.4), rgba(74, 72, 72, 0.4)),
+    url('/public/img/ecail.jpg') no-repeat center/contain;
   background-size: cover;
   background-position: center;
   position: relative;
@@ -229,7 +230,7 @@
 }
 
 .testimonial-card {
-  background-color: #FFFFFF;
+  background-color: #b8b3b394;
   /* Blanc */
   padding: 30px;
   border-radius: 12px;
@@ -250,7 +251,7 @@
   top: 15px;
   left: 15px;
   font-size: 3rem;
-  color: #4A704B;
+  color: #000000;
   /* Vert foncé */
   opacity: 0.2;
 }
@@ -258,7 +259,7 @@
 .quote {
   font-style: italic;
   font-size: 1.1rem;
-  color: #333;
+  color: #fefdfd;
   /* Gris foncé pour contraste */
   margin-bottom: 15px;
   line-height: 1.6;

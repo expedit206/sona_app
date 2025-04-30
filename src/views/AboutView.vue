@@ -55,9 +55,8 @@
   padding: 60px 20px;
   text-align: center;
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url('https://images.unsplash.com/photo-1504280390367-5d76a2d11935?q=80&w=2070&auto=format&fit=crop');
+    url('/public/img//masse-genou.jpg') no-repeat center/cover;
   background-size: cover;
-  background-position: center;
 }
 
 .hero-content {
