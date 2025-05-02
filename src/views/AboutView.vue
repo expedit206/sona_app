@@ -55,7 +55,7 @@
   padding: 60px 20px;
   text-align: center;
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url('/public/img//masse-genou.jpg') no-repeat center/cover;
+    url('/public/img//bgpropo.jpg') no-repeat center/cover;
   background-size: cover;
 }
 
@@ -102,7 +102,10 @@
 .mission-section {
   text-align: center;
   padding: 40px 0;
-  background-color: #F5F5F5;
+  background-color: #d5d3d3;
+  /* background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), */
+      /* url('/public/img/jirof.jpg') no-repeat center/cover; */
+    /* background-size: cover; */
   /* Blanc cassé léger */
 }
 

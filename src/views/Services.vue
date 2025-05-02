@@ -11,7 +11,7 @@
         <!-- Liste des services -->
         <div class="service-list">
             <div class="service card">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop"
+                <img src="/public/img/reeduc.jpg"
                     alt="Rééducation post-opératoire" class="service-image" />
                 <h2>Rééducation post-opératoire</h2>
                 <p>
