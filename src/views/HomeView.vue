@@ -148,8 +148,8 @@ onMounted(() => {
   }, 5000);
 
   // Arrête le défilement automatique si l'utilisateur interagit
-  document.querySelector('.carousel-container').addEventListener('mouseover', () => clearInterval(autoSlide));
-  document.querySelector('.carousel-container').addEventListener('mouseout', () => {
+  document.querySelector('.carousel-container')?.addEventListener('mouseover', () => clearInterval(autoSlide));
+  document.querySelector('.carousel-container')?.addEventListener('mouseout', () => {
     autoSlide = setInterval(() => nextSlide(), 5000);
   });
 });
