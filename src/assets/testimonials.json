@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "quote": "Les séances de kinésithérapie m’ont redonné une mobilité que je pensais perdue. Merci Sona !",
+    "author": "Marie, 45 ans",
+    "avatar": "https://www.gravatar.com/avatar/support@wpbeginner.com?d=mp&s=60"
+  },
+  {
+    "id": 2,
+    "quote": "Le sirop de citron est incroyable pour renforcer mon système immunitaire, surtout en hiver.",
+    "author": "Paul, 32 ans",
+    "avatar": "https://gravatar.com/avatar/27205e5c51cb03f862138b22bcb5dc20f94a342e744ff6df1b8dc8af3c865109?s=200"
+  },
+  {
+    "id": 3,
+    "quote": "Un service à domicile très pratique et professionnel, je recommande vivement !",
+    "author": "Sophie, 38 ans",
+    "avatar": "https://www.gravatar.com/avatar/anotheruser@example.com?d=mp&s=60"
+  },
+  {
+    "id": 1,
+    "quote": "Les séances de kinésithérapie m’ont redonné une mobilité que je pensais perdue. Merci Sona !",
+    "author": "Marie, 45 ans",
+    "avatar": "https://www.gravatar.com/avatar/support@wpbeginner.com?d=mp&s=60"
+  },
+  {
+    "id": 2,
+    "quote": "Le sirop de citron est incroyable pour renforcer mon système immunitaire, surtout en hiver.",
+    "author": "Paul, 32 ans",
+    "avatar": "https://gravatar.com/avatar/27205e5c51cb03f862138b22bcb5dc20f94a342e744ff6df1b8dc8af3c865109?s=200"
+  },
+  {
+    "id": 3,
+    "quote": "Un service à domicile très pratique et professionnel, je recommande vivement !",
+    "author": "Sophie, 38 ans",
+    "avatar": "https://www.gravatar.com/avatar/anotheruser@example.com?d=mp&s=60"
+  }
+]

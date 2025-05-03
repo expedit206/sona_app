@@ -12,7 +12,7 @@
         <!-- Liste des produits -->
         <div class="product-list">
             <div class="product card">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop"
+                <img src="/public/img/siro.png"
                     alt="Sirop de citron" class="product-image" />
                 <h3>Sirop de citron</h3>
                 <p class="description">
