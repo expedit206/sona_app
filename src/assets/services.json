@@ -3,18 +3,18 @@
     "id": "reeduc",
     "title": "Kinésithérapie",
     "description": "Accompagnement personnalisé pour retrouver votre mobilité après une opération. Nous travaillons sur des exercices ciblés pour accélérer votre rétablissement.",
-    "image": "./public/img/masse-do.jpg",
+    "image": "/img/masse-do.jpg",
     "gallery": [
       {
-        "url": "./public/img/masse-do.jpg",
+        "url": "/img/masse-do.jpg",
         "description": "Patient en rééducation post-opératoire avec un kinésithérapeute"
       },
       {
-        "url": "./public/img/masse-do.jpg",
+        "url": "/img/masse-do.jpg",
         "description": "Exercices de rééducation pour renforcer les muscles"
       },
       {
-        "url": "./public/img/masse-do.jpg",
+        "url": "/img/masse-do.jpg",
         "description": "Séance de rééducation avec équipement médical"
       }
     ]
@@ -23,18 +23,18 @@
     "id": "massage",
     "title": "Massages thérapeutiques",
     "description": "Techniques de massage pour soulager les douleurs musculaires, réduire le stress et améliorer la circulation sanguine.",
-    "image": "./public/img/masse-genou.jpg",
+    "image": "/img/masse-genou.jpg",
     "gallery": [
       {
-        "url": "./public/img/masse-cons.jpg",
+        "url": "/img/masse-cons.jpg",
         "description": "Massage thérapeutique pour soulager les douleurs musculaires"
       },
       {
-        "url": "./public/img/masse-cons.jpg",
+        "url": "/img/masse-cons.jpg",
         "description": "Massage relaxant pour réduire le stress"
       },
       {
-        "url": "./public/img/masse-cons.jpg",
+        "url": "/img/masse-cons.jpg",
         "description": "Massage des jambes pour améliorer la circulation"
       }
     ]
@@ -43,18 +43,18 @@
     "id": "reeduc",
     "title": "Rééducation post-opératoire",
     "description": "Accompagnement personnalisé pour retrouver votre mobilité après une opération. Nous travaillons sur des exercices ciblés pour accélérer votre rétablissement.",
-    "image": "./public/img/masse-cons.jpg",
+    "image": "/img/masse-cons.jpg",
     "gallery": [
       {
-        "url": "./public/img/masse-do.jpg",
+        "url": "/img/masse-do.jpg",
         "description": "Patient en rééducation post-opératoire avec un kinésithérapeute"
       },
       {
-        "url": "./public/img/reeduc.jpg",
+        "url": "/img/reeduc.jpg",
         "description": "Exercices de rééducation pour renforcer les muscles"
       },
       {
-        "url": "./public/img/reeduc.jpg",
+        "url": "/img/reeduc.jpg",
         "description": "Séance de rééducation avec équipement médical"
       }
     ]
@@ -63,18 +63,18 @@
     "id": "massage",
     "title": "Massages thérapeutiques",
     "description": "Techniques de massage pour soulager les douleurs musculaires, réduire le stress et améliorer la circulation sanguine.",
-    "image": "./public/img/reeduc.jpg",
+    "image": "/img/reeduc.jpg",
     "gallery": [
       {
-        "url": "./public/img/reeduc.jpg",
+        "url": "/img/reeduc.jpg",
         "description": "Massage thérapeutique pour soulager les douleurs musculaires"
       },
       {
-        "url": "./public/img/reeduc.jpg",
+        "url": "/img/reeduc.jpg",
         "description": "Massage relaxant pour réduire le stress"
       },
       {
-        "url": "./public/img/masse-do.jpg",
+        "url": "/img/masse-do.jpg",
         "description": "Massage des jambes pour améliorer la circulation"
       }
     ]
@@ -83,18 +83,18 @@
     "id": "reeduc",
     "title": "Rééducation post-opératoire",
     "description": "Accompagnement personnalisé pour retrouver votre mobilité après une opération. Nous travaillons sur des exercices ciblés pour accélérer votre rétablissement.",
-    "image": "./public/img/masse-do.jpg",
+    "image": "/img/masse-do.jpg",
     "gallery": [
       {
-        "url": "./public/img/masse-do.jpg",
+        "url": "/img/masse-do.jpg",
         "description": "Patient en rééducation post-opératoire avec un kinésithérapeute"
       },
       {
-        "url": "./public/img/masse-do.jpg",
+        "url": "/img/masse-do.jpg",
         "description": "Exercices de rééducation pour renforcer les muscles"
       },
       {
-        "url": "./public/img/masse-do.jpg",
+        "url": "/img/masse-do.jpg",
         "description": "Séance de rééducation avec équipement médical"
       }
     ]
@@ -104,18 +104,18 @@
     "id": "consult",
     "title": "Consultations à domicile",
     "description": "Des soins directement chez vous pour plus de confort, adaptés à votre emploi du temps et à vos besoins spécifiques.",
-    "image": "./public/img/masse-do.jpg",
+    "image": "/img/masse-do.jpg",
     "gallery": [
       {
-        "url": "./public/img/masse-do.jpg",
+        "url": "/img/masse-do.jpg",
         "description": "Consultation à domicile avec un kinésithérapeute"
       },
       {
-        "url": "./public/img/masse-do.jpg",
+        "url": "/img/masse-do.jpg",
         "description": "Séance de soins à domicile pour un patient"
       },
       {
-        "url": "./public/img/masse-do.jpg",
+        "url": "/img/masse-do.jpg",
         "description": "Consultation à domicile avec matériel portable"
       }
     ]

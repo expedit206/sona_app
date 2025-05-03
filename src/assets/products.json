@@ -5,7 +5,7 @@
     "description": "Découvrez notre gamme de produits naturels pour renforcer votre santé et votre bien-être.",
     "benefits": "Riche en vitamine C, antioxydant, apaise les irritations.",
     "price": "10€ (250ml)",
-    "image": "./public/img/siro.png"
+    "image": "/img/siro.png"
   },
   {
     "id": "sirop-citron",
@@ -13,7 +13,7 @@
     "description": "Un remède naturel pour renforcer votre immunité et apaiser les maux de gorge. Idéal pour toute la famille, surtout en hiver.",
     "benefits": "Riche en vitamine C, antioxydant, apaise les irritations.",
     "price": "10€ (250ml)",
-    "image": "./public/img/cacao-cabos.jpg"
+    "image": "/img/cacao-cabos.jpg"
   },
   {
     "id": "poudre-gingembre",
@@ -21,6 +21,6 @@
     "description": "Un anti-inflammatoire naturel puissant, parfait pour améliorer la digestion et soulager les douleurs articulaires.",
     "benefits": "Stimule la digestion, réduit l’inflammation, booste l’énergie.",
     "price": "8€ (100g)",
-    "image": "./public/img/cabos.jpeg"
+    "image": "/img/cabos.jpeg"
   }
 ]
