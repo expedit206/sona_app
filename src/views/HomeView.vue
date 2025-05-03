@@ -3,48 +3,74 @@
     <!-- Section Hero avec Parallax -->
     <section class="hero animate-on-scroll">
       <div class="hero-content">
-        <h1 class="hero-title">Bienvenue chez Sona</h1>
+        <h1 class="hero-title">
+          <i class="fas fa-heart hero-icon"></i>
+          Bienvenue chez Sona
+        </h1>
         <p class="hero-subtitle">
           Votre partenaire pour une santé naturelle et un bien-être durable – Spécialiste en kinésithérapie et
           producteur de remèdes naturels.
         </p>
         <div class="hero-buttons">
-          <router-link to="/services" class="btn btn-primary">Découvrir nos soins</router-link>
+          <router-link to="/services" class="btn btn-primary">
+            Découvrir nos soins
+            <i class="fa fa-chevron-right btn-icon"></i>
+          </router-link>
         </div>
       </div>
     </section>
 
     <!-- Section À propos rapide -->
     <section class="container about-section animate-on-scroll">
-      <h2 class="section-title">Qui sommes-nous ?</h2>
+      <h2 class="section-title">
+        <i class="fas fa-users section-icon"></i>
+        Qui sommes-nous ?
+      </h2>
       <p class="section-text">
         Chez Sona, nous combinons l’expertise de la kinésithérapie avec la puissance des remèdes naturels. Forts de plus
         de 10 ans d’expérience, nous offrons des soins personnalisés pour améliorer votre qualité de vie et des produits
         médicinaux faits maison, issus d’ingrédients biologiques et locaux.
       </p>
-      <router-link to="/about" class="btn btn-secondary">En savoir plus sur notre histoire</router-link>
+      <router-link to="/about" class="btn btn-secondary">
+        En savoir plus sur notre histoire
+        <i class="fa fa-book btn-icon"></i>
+      </router-link>
     </section>
 
     <!-- Section Services et Produits -->
     <section class="container services-products animate-on-scroll">
-      <h2 class="section-title">Nos expertises</h2>
+      <h2 class="section-title">
+        <i class="fas fa-star section-icon"></i>
+        Nos expertises
+      </h2>
       <div class="sections">
         <div class="card" v-for="item in allItems" :key="item.id">
           <div class="card-image"
             :style="{ background: `url(${item.image}) no-repeat center center`, backgroundSize: 'cover' }">
           </div>
-          <h2>{{ item.title }}</h2>
+          <h2>
+            <i :class="item.icon" class="card-icon"></i>
+            {{ item.title }}
+          </h2>
           <p>{{ item.description }}</p>
-          <router-link :to="item.link" class="btn btn-primary">En savoir plus</router-link>
+          <router-link :to="item.link" class="btn btn-primary">
+            En savoir plus
+            <i class="fa fa-chevron-right btn-icon"></i>
+          </router-link>
         </div>
       </div>
     </section>
 
     <!-- Section Témoignages avec Carrousel -->
     <section class="container testimonials animate-on-scroll">
-      <h2 class="section-title">Ce que disent nos clients</h2>
+      <h2 class="section-title">
+        <i class="fas fa-comments section-icon"></i>
+        Ce que disent nos clients
+      </h2>
       <div class="carousel-container">
-        <button class="carousel-btn prev" @click="prevSlide" aria-label="Témoignage précédent">❮</button>
+        <button class="carousel-btn prev" @click="prevSlide" aria-label="Témoignage précédent">
+          <i class="fa fa-chevron-left"></i>
+        </button>
         <div class="carousel">
           <div class="carousel-inner" :style="{ transform: `translateX(-${currentSlide * (100 / 3)}%)` }">
             <div class="card testimonial-card" v-for="(testimonial, index) in testimonialsData" :key="testimonial.id"
@@ -53,13 +79,15 @@
                 <img :src="testimonial.avatar" :alt="`Avatar de ${testimonial.author.split(',')[0]}`"
                   class="avatar-img">
               </div>
-              <span class="quote-icon">“</span>
+              <i class="fas fa-quote-left quote-icon"></i>
               <p class="quote">{{ testimonial.quote }}</p>
               <p class="author">— {{ testimonial.author }}</p>
             </div>
           </div>
         </div>
-        <button class="carousel-btn next" @click="nextSlide" aria-label="Témoignage suivant">❯</button>
+        <button class="carousel-btn next" @click="nextSlide" aria-label="Témoignage suivant">
+          <i class="fas fa-chevron-right"></i>
+        </button>
       </div>
     </section>
   </div>
@@ -106,11 +134,11 @@ const currentSlide = ref(0);
 const totalSlides = computed(() => Math.ceil(testimonialsData.value.length / 3));
 
 const nextSlide = () => {
-  currentSlide.value = (currentSlide.value + 1) % totalSlides.value;
+  currentSlide.value = (currentSlide.value + 1) % testimonialsData.value.length;
 };
 
 const prevSlide = () => {
-  currentSlide.value = (currentSlide.value - 1 + totalSlides.value) % totalSlides.value;
+  currentSlide.value = (currentSlide.value - 1 + testimonialsData.value.length) % testimonialsData.value.length;
 };
 
 // Défilement automatique (facultatif, toutes les 5 secondes)
@@ -175,6 +203,10 @@ onMounted(() => {
   margin-bottom: 20px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .hero-title::after {
@@ -187,6 +219,11 @@ onMounted(() => {
   bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.hero-icon {
+  font-size: 2.5rem;
+  color: #C8102E;
 }
 
 .hero-subtitle {
@@ -217,6 +254,10 @@ onMounted(() => {
   color: #4A704B;
   /* Vert foncé */
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .section-title::after {
@@ -229,6 +270,11 @@ onMounted(() => {
   bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.section-icon {
+  font-size: 1.8rem;
+  color: #C8102E;
 }
 
 .section-text {
@@ -290,6 +336,14 @@ onMounted(() => {
   margin: 20px 20px 10px;
   color: #4A704B;
   /* Vert foncé */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-icon {
+  font-size: 1.4rem;
+  color: #C8102E;
 }
 
 .card p {
@@ -327,26 +381,26 @@ onMounted(() => {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(74, 112, 75, 0.2);
   position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   flex: 0 0 calc(33.33% - 20px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  transform: translateZ(0);
-  perspective: 1000px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
 }
 
 .testimonial-card.center {
-  transform: scale(1.2) translateZ(0);
+  transform: scale(1.3);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-  z-index: 2;
+  z-index: 3;
+  opacity: 1;
 }
 
 .testimonial-card.left,
 .testimonial-card.right {
-  transform: scale(0.9) translateZ(-50px);
+  transform: scale(0.8);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   z-index: 1;
+  opacity: 0.7;
 }
 
 .testimonial-avatar {
@@ -370,7 +424,7 @@ onMounted(() => {
   position: absolute;
   top: 15px;
   left: 15px;
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: #4A704B;
   opacity: 0.2;
 }
@@ -434,7 +488,9 @@ onMounted(() => {
   text-decoration: none;
   font-weight: 500;
   transition: background-color 0.3s ease, transform 0.3s ease;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   margin: 0 10px 20px;
 }
 
@@ -454,7 +510,9 @@ onMounted(() => {
   text-decoration: none;
   font-weight: 500;
   transition: all 0.3s ease;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .btn-secondary:hover {
@@ -462,6 +520,10 @@ onMounted(() => {
   color: #FFFFFF;
   border-color: #C8102E;
   transform: scale(1.05);
+}
+
+.btn-icon {
+  font-size: 1rem;
 }
 
 /* Responsive */
@@ -475,6 +537,10 @@ onMounted(() => {
     font-size: 2.5rem;
   }
 
+  .hero-icon {
+    font-size: 2rem;
+  }
+
   .hero-subtitle {
     font-size: 1.2rem;
   }
@@ -486,6 +552,10 @@ onMounted(() => {
 
   .section-title {
     font-size: 2rem;
+  }
+
+  .section-icon {
+    font-size: 1.5rem;
   }
 
   .section-text {
@@ -504,6 +574,10 @@ onMounted(() => {
     font-size: 1.4rem;
   }
 
+  .card-icon {
+    font-size: 1.2rem;
+  }
+
   .card p {
     font-size: 0.95rem;
   }
@@ -517,6 +591,7 @@ onMounted(() => {
     flex: 0 0 100%;
     transform: scale(1);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    opacity: 1;
   }
 
   .testimonial-card.center {
@@ -539,12 +614,16 @@ onMounted(() => {
   }
 
   .quote-icon {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   .btn-primary,
   .btn-secondary {
     padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .btn-icon {
     font-size: 0.9rem;
   }
 }
