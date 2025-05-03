@@ -1,7 +1,7 @@
 <template>
     <div class="products container">
         <!-- En-tête -->
-        <header class="products-header">
+        <header class="products-header animate-on-scroll">
             <h1 class="section-title">Nos produits médicinaux</h1>
             <p class="section-text">
                 Découvrez notre gamme de remèdes naturels, fabriqués avec des ingrédients biologiques et locaux pour
@@ -10,52 +10,79 @@
         </header>
 
         <!-- Liste des produits -->
-        <div class="product-list">
-            <div class="product card">
-                <img src="/public/img/siro.png"
-                    alt="Sirop de citron" class="product-image" />
-                <h3>Sirop de citron</h3>
-                <p class="description">
-                    Un remède naturel pour renforcer votre immunité et apaiser les maux de gorge. Idéal pour toute la
-                    famille, surtout en hiver.
-                </p>
+        <div class="product-list animate-on-scroll">
+            <div v-for="product in productsData" :key="product.id" class="product card">
+                <img :src="product.image" :alt="product.title" class="product-image" />
+                <h3>
+                    <i :class="product.icon" class="product-icon"></i>
+                    {{ product.title }}
+                </h3>
+                <p class="description">{{ product.description }}</p>
                 <p class="benefits">
-                    <strong>Bienfaits :</strong> Riche en vitamine C, antioxydant, apaise les irritations.
+                    <strong>Bienfaits :</strong> {{ product.benefits }}
                 </p>
-                <p class="price">Prix : 10€ (250ml)</p>
-                <button class="btn btn-primary">Commander</button>
-            </div>
-            <div class="product card">
-                <img src="https://images.unsplash.com/photo-1615485290382-441e9d161f72?q=80&w=2070&auto=format&fit=crop"
-                    alt="Poudre de gingembre" class="product-image" />
-                <h3>Poudre de gingembre</h3>
-                <p class="description">
-                    Un anti-inflammatoire naturel puissant, parfait pour améliorer la digestion et soulager les douleurs
-                    articulaires.
-                </p>
-                <p class="benefits">
-                    <strong>Bienfaits :</strong> Stimule la digestion, réduit l’inflammation, booste l’énergie.
-                </p>
-                <p class="price">Prix : 8€ (100g)</p>
-                <button class="btn btn-primary">Commander</button>
+                <p class="price">Prix : {{ product.price }}</p>
+                <button class="btn btn-primary">
+                    <i class="fas fa-shopping-cart btn-icon"></i>
+                    Commander
+                </button>
             </div>
         </div>
 
         <!-- Section appel à l'action -->
-        <section class="cta-section">
-            <h2 class="section-title">Intéressé par nos produits ?</h2>
+        <section class="cta-section animate-on-scroll">
+            <h2 class="section-title">
+                <i class="fas fa-box-open cta-icon"></i>
+                Intéressé par nos produits ?
+            </h2>
             <p class="section-text">
                 Contactez-nous pour passer une commande ou pour plus d’informations sur nos remèdes naturels.
             </p>
-            <router-link to="/contact" class="btn btn-secondary">Nous contacter</router-link>
+            <router-link to="/contact" class="btn btn-secondary">
+                <i class="fas fa-envelope btn-icon"></i>
+                Nous contacter
+            </router-link>
         </section>
     </div>
 </template>
 
 <script setup lang="ts">
+import { onMounted } from 'vue';
+
+// Charger les données JSON
+import productsData from '@/assets/products.json';
+
+// Gestion des animations au scroll avec Intersection Observer
+onMounted(() => {
+    const sections = document.querySelectorAll('.animate-on-scroll');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // Arrête l'observation après l'animation
+            }
+        });
+    }, { threshold: 0.2 }); // Déclenche quand 20% de la section est visible
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+});
 </script>
 
 <style scoped>
+/* Animations au scroll */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* En-tête */
 .products-header {
     text-align: center;
@@ -67,6 +94,10 @@
     margin-bottom: 15px;
     color: #4A704B;
     /* Vert foncé */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
 .section-text {
@@ -110,6 +141,15 @@
     color: #4A704B;
     /* Vert foncé */
     margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.product-icon {
+    font-size: 1.3rem;
+    color: #C8102E;
+    /* Rouge */
 }
 
 .description {
@@ -153,6 +193,12 @@
     /* Blanc */
 }
 
+.cta-icon {
+    font-size: 1.5rem;
+    color: #C8102E;
+    /* Rouge */
+}
+
 /* Boutons */
 .btn-primary {
     background-color: #4A704B;
@@ -163,12 +209,16 @@
     border-radius: 5px;
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .btn-primary:hover {
     background-color: #C8102E;
     /* Rouge */
+    transform: scale(1.05);
 }
 
 .btn-secondary {
@@ -180,6 +230,9 @@
     border-radius: 5px;
     text-decoration: none;
     transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .btn-secondary:hover {
@@ -187,6 +240,11 @@
     /* Rouge */
     color: #FFFFFF;
     border-color: #C8102E;
+    transform: scale(1.05);
+}
+
+.btn-icon {
+    font-size: 1rem;
 }
 
 /* Responsive */
@@ -203,6 +261,10 @@
         font-size: 1.3rem;
     }
 
+    .product-icon {
+        font-size: 1.2rem;
+    }
+
     .description,
     .benefits,
     .price {
@@ -211,6 +273,14 @@
 
     .product-image {
         height: 150px;
+    }
+
+    .cta-icon {
+        font-size: 1.3rem;
+    }
+
+    .btn-icon {
+        font-size: 0.9rem;
     }
 }
 </style>

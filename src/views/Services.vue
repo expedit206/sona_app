@@ -1,7 +1,7 @@
 <template>
     <div class="services container">
         <!-- En-tête -->
-        <header class="services-header">
+        <header class="services-header animate-on-scroll">
             <h1 class="section-title">Services de kinésithérapie</h1>
             <p class="section-text">
                 Des soins professionnels adaptés à vos besoins pour améliorer votre mobilité et votre bien-être.
@@ -9,42 +9,16 @@
         </header>
 
         <!-- Liste des services -->
-        <div class="service-list">
-            <div class="service card">
-                <img src="https://images.unsplash.com/photo-1576091160550-2173fd1bece7?q=80&w=2070&auto=format&fit=crop"
-                    alt="Rééducation post-opératoire" class="service-image" />
-                <h2>Rééducation post-opératoire</h2>
-                <p>
-                    Accompagnement personnalisé pour retrouver votre mobilité après une opération. Nous travaillons sur
-                    des
-                    exercices ciblés pour accélérer votre rétablissement.
-                </p>
-                <button class="btn btn-primary" @click="showGallery('reeduc')"
-                    aria-label="Voir plus d'images pour la rééducation post-opératoire">Voir plus</button>
-            </div>
-            <div class="service card">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop"
-                    alt="Massages thérapeutiques" class="service-image" />
-                <h2>Massages thérapeutiques</h2>
-                <p>
-                    Techniques de massage pour soulager les douleurs musculaires, réduire le stress et améliorer la
-                    circulation
-                    sanguine.
-                </p>
-                <button class="btn btn-primary" @click="showGallery('massage')"
-                    aria-label="Voir plus d'images pour les massages thérapeutiques">Voir plus</button>
-            </div>
-            <div class="service card">
-                <img src="https://images.unsplash.com/photo-1612349317154-ee6ee38a476a?q=80&w=2070&auto=format&fit=crop"
-                    alt="Consultations à domicile" class="service-image" />
-                <h2>Consultations à domicile</h2>
-                <p>
-                    Des soins directement chez vous pour plus de confort, adaptés à votre emploi du temps et à vos
-                    besoins
-                    spécifiques.
-                </p>
-                <button class="btn btn-primary" @click="showGallery('consult')"
-                    aria-label="Voir plus d'images pour les consultations à domicile">Voir plus</button>
+        <div class="service-list animate-on-scroll">
+            <div v-for="service in servicesData" :key="service.id" class="service card">
+                <img :src="service.image" :alt="service.title" class="service-image" />
+                <h2>
+                    <i :class="service.icon" class="service-icon"></i>
+                    {{ service.title }}
+                </h2>
+                <p>{{ service.description }}</p>
+                <button class="btn btn-primary" @click="showGallery(service.id)"
+                    :aria-label="'Voir plus d\'images pour ' + service.title">Voir plus</button>
             </div>
         </div>
 
@@ -73,50 +47,55 @@
         </div>
 
         <!-- Section CTA -->
-        <section class="cta-section">
-            <h2 class="section-title">Prêt à prendre soin de vous ?</h2>
+        <section class="cta-section animate-on-scroll">
+            <h2 class="section-title">
+                <i class="fas fa-calendar-check cta-icon"></i>
+                Prêt à prendre soin de vous ?
+            </h2>
             <p class="section-text">
                 Contactez-nous pour réserver une séance ou pour plus d’informations sur nos services.
             </p>
-            <router-link to="/contact" class="btn btn-primary">Prendre rendez-vous</router-link>
+            <router-link to="/contact" class="btn btn-primary">
+                <i class="fas fa-phone-alt btn-icon"></i>
+                Prendre rendez-vous
+            </router-link>
         </section>
     </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+
+// Charger les données JSON
+import servicesData from '@/assets/services.json';
 
 const isGalleryOpen = ref(false);
 const galleryTitle = ref('');
 const galleryItems = ref<{ url: string, description: string }[]>([]);
 
-const showGallery = (service: string) => {
+// Gestion des animations au scroll avec Intersection Observer
+onMounted(() => {
+    const sections = document.querySelectorAll('.animate-on-scroll');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // Arrête l'observation après l'animation
+            }
+        });
+    }, { threshold: 0.2 }); // Déclenche quand 20% de la section est visible
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+});
+
+const showGallery = (serviceId: string) => {
     isGalleryOpen.value = true;
-    switch (service) {
-        case 'reeduc':
-            galleryTitle.value = 'Galerie - Rééducation post-opératoire';
-            galleryItems.value = [
-                { url: 'https://images.unsplash.com/photo-1576091160550-2173fd1bece7?q=80&w=2070&auto=format&fit=crop', description: 'Patient en rééducation post-opératoire avec un kinésithérapeute' },
-                { url: 'https://images.unsplash.com/photo-1571019614242-c5ca3f5e59f8?q=80&w=2070&auto=format&fit=crop', description: 'Exercices de rééducation pour renforcer les muscles' },
-                { url: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=2070&auto=format&fit=crop', description: 'Séance de rééducation avec équipement médical' }
-            ];
-            break;
-        case 'massage':
-            galleryTitle.value = 'Galerie - Massages thérapeutiques';
-            galleryItems.value = [
-                { url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop', description: 'Massage thérapeutique pour soulager les douleurs musculaires' },
-                { url: 'https://images.unsplash.com/photo-1519824145371-2968948d4e77?q=80&w=2070&auto=format&fit=crop', description: 'Massage relaxant pour réduire le stress' },
-                { url: 'https://images.unsplash.com/photo-1616394584738-fc687bef1dd1?q=80&w=2070&auto=format&fit=crop', description: 'Massage des jambes pour améliorer la circulation' }
-            ];
-            break;
-        case 'consult':
-            galleryTitle.value = 'Galerie - Consultations à domicile';
-            galleryItems.value = [
-                { url: 'https://images.unsplash.com/photo-1612349317154-ee6ee38a476a?q=80&w=2070&auto=format&fit=crop', description: 'Consultation à domicile avec un kinésithérapeute' },
-                { url: 'https://images.unsplash.com/photo-1584464491920-41b432a4235b?q=80&w=2070&auto=format&fit=crop', description: 'Séance de soins à domicile pour un patient' },
-                { url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop', description: 'Consultation à domicile avec matériel portable' }
-            ];
-            break;
+    const service = servicesData.find(s => s.id === serviceId);
+    if (service) {
+        galleryTitle.value = `Galerie - ${service.title}`;
+        galleryItems.value = service.gallery;
     }
 };
 
@@ -132,6 +111,18 @@ const closeGallery = () => {
     background: linear-gradient(180deg, #F5F5F5 0%, #FFFFFF 100%);
     /* Dégradé subtil */
     padding: 40px 20px;
+}
+
+/* Animations au scroll */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* En-tête */
@@ -150,6 +141,10 @@ const closeGallery = () => {
     color: #4A704B;
     /* Vert foncé */
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
 .section-title::after {
@@ -216,6 +211,15 @@ const closeGallery = () => {
     color: #4A704B;
     /* Vert foncé */
     margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.service-icon {
+    font-size: 1.4rem;
+    color: #C8102E;
+    /* Rouge */
 }
 
 .service p {
@@ -350,6 +354,12 @@ const closeGallery = () => {
     font-size: 2.2rem;
 }
 
+.cta-icon {
+    font-size: 1.8rem;
+    color: #C8102E;
+    /* Rouge */
+}
+
 .cta-section .section-text {
     color: #FFFFFF;
     opacity: 0.9;
@@ -369,12 +379,19 @@ const closeGallery = () => {
     font-weight: 500;
     transition: background-color 0.3s ease, transform 0.3s ease;
     cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .btn-primary:hover {
     background-color: #C8102E;
     /* Rouge */
     transform: scale(1.05);
+}
+
+.btn-icon {
+    font-size: 1rem;
 }
 
 .btn-secondary {
@@ -426,6 +443,10 @@ const closeGallery = () => {
         font-size: 1.4rem;
     }
 
+    .service-icon {
+        font-size: 1.2rem;
+    }
+
     .service p {
         font-size: 0.95rem;
     }
@@ -452,6 +473,10 @@ const closeGallery = () => {
         font-size: 1.8rem;
     }
 
+    .cta-icon {
+        font-size: 1.5rem;
+    }
+
     .cta-section .section-text {
         font-size: 1rem;
     }
@@ -459,6 +484,10 @@ const closeGallery = () => {
     .btn-primary,
     .btn-secondary {
         padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .btn-icon {
         font-size: 0.9rem;
     }
 }

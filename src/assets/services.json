@@ -1,16 +1,129 @@
 [
   {
-    "id": 1,
-    "title": "Kinésithérapie",
-    "description": "Des soins professionnels adaptés à vos besoins : rééducation, massages thérapeutiques, et consultations à domicile pour retrouver votre mobilité et soulager vos douleurs.",
-    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop",
-    "link": "/services"
+    "id": "reeduc",
+    "title": "Rééducation post-opératoire",
+    "description": "Accompagnement personnalisé pour retrouver votre mobilité après une opération. Nous travaillons sur des exercices ciblés pour accélérer votre rétablissement.",
+    "image": "https://images.unsplash.com/photo-1576091160550-2173fd1bece7?q=80&w=2070&auto=format&fit=crop",
+    "gallery": [
+      {
+        "url": "https://images.unsplash.com/photo-1576091160550-2173fd1bece7?q=80&w=2070&auto=format&fit=crop",
+        "description": "Patient en rééducation post-opératoire avec un kinésithérapeute"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1571019614242-c5ca3f5e59f8?q=80&w=2070&auto=format&fit=crop",
+        "description": "Exercices de rééducation pour renforcer les muscles"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=2070&auto=format&fit=crop",
+        "description": "Séance de rééducation avec équipement médical"
+      }
+    ],
+    "icon": "fas fa-user-injured"
   },
   {
-    "id": 2,
-    "title": "Consultation à domicile",
-    "description": "Un service personnalisé directement chez vous pour un suivi adapté à vos besoins de rééducation.",
-    "image": "https://images.unsplash.com/photo-1576765607924-3f7b8410f1d7?q=80&w=2070&auto=format&fit=crop",
-    "link": "/services"
+    "id": "massage",
+    "title": "Massages thérapeutiques",
+    "description": "Techniques de massage pour soulager les douleurs musculaires, réduire le stress et améliorer la circulation sanguine.",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop",
+    "gallery": [
+      {
+        "url": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop",
+        "description": "Massage thérapeutique pour soulager les douleurs musculaires"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1519824145371-2968948d4e77?q=80&w=2070&auto=format&fit=crop",
+        "description": "Massage relaxant pour réduire le stress"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1616394584738-fc687bef1dd1?q=80&w=2070&auto=format&fit=crop",
+        "description": "Massage des jambes pour améliorer la circulation"
+      }
+    ],
+    "icon": "fas fa-hands"
+  },
+  {
+    "id": "reeduc",
+    "title": "Rééducation post-opératoire",
+    "description": "Accompagnement personnalisé pour retrouver votre mobilité après une opération. Nous travaillons sur des exercices ciblés pour accélérer votre rétablissement.",
+    "image": "https://images.unsplash.com/photo-1576091160550-2173fd1bece7?q=80&w=2070&auto=format&fit=crop",
+    "gallery": [
+      {
+        "url": "https://images.unsplash.com/photo-1576091160550-2173fd1bece7?q=80&w=2070&auto=format&fit=crop",
+        "description": "Patient en rééducation post-opératoire avec un kinésithérapeute"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1571019614242-c5ca3f5e59f8?q=80&w=2070&auto=format&fit=crop",
+        "description": "Exercices de rééducation pour renforcer les muscles"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=2070&auto=format&fit=crop",
+        "description": "Séance de rééducation avec équipement médical"
+      }
+    ],
+    "icon": "fas fa-user-injured"
+  },
+  {
+    "id": "massage",
+    "title": "Massages thérapeutiques",
+    "description": "Techniques de massage pour soulager les douleurs musculaires, réduire le stress et améliorer la circulation sanguine.",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop",
+    "gallery": [
+      {
+        "url": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop",
+        "description": "Massage thérapeutique pour soulager les douleurs musculaires"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1519824145371-2968948d4e77?q=80&w=2070&auto=format&fit=crop",
+        "description": "Massage relaxant pour réduire le stress"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1616394584738-fc687bef1dd1?q=80&w=2070&auto=format&fit=crop",
+        "description": "Massage des jambes pour améliorer la circulation"
+      }
+    ],
+    "icon": "fas fa-hands"
+  },
+  {
+    "id": "reeduc",
+    "title": "Rééducation post-opératoire",
+    "description": "Accompagnement personnalisé pour retrouver votre mobilité après une opération. Nous travaillons sur des exercices ciblés pour accélérer votre rétablissement.",
+    "image": "https://images.unsplash.com/photo-1576091160550-2173fd1bece7?q=80&w=2070&auto=format&fit=crop",
+    "gallery": [
+      {
+        "url": "https://images.unsplash.com/photo-1576091160550-2173fd1bece7?q=80&w=2070&auto=format&fit=crop",
+        "description": "Patient en rééducation post-opératoire avec un kinésithérapeute"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1571019614242-c5ca3f5e59f8?q=80&w=2070&auto=format&fit=crop",
+        "description": "Exercices de rééducation pour renforcer les muscles"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=2070&auto=format&fit=crop",
+        "description": "Séance de rééducation avec équipement médical"
+      }
+    ],
+    "icon": "fas fa-user-injured"
+  },
+ 
+  {
+    "id": "consult",
+    "title": "Consultations à domicile",
+    "description": "Des soins directement chez vous pour plus de confort, adaptés à votre emploi du temps et à vos besoins spécifiques.",
+    "image": "https://images.unsplash.com/photo-1612349317154-ee6ee38a476a?q=80&w=2070&auto=format&fit=crop",
+    "gallery": [
+      {
+        "url": "https://images.unsplash.com/photo-1612349317154-ee6ee38a476a?q=80&w=2070&auto=format&fit=crop",
+        "description": "Consultation à domicile avec un kinésithérapeute"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1584464491920-41b432a4235b?q=80&w=2070&auto=format&fit=crop",
+        "description": "Séance de soins à domicile pour un patient"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop",
+        "description": "Consultation à domicile avec matériel portable"
+      }
+    ],
+    "icon": "fas fa-home"
   }
 ]

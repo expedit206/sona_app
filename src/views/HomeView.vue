@@ -46,8 +46,9 @@
       <div class="carousel-container">
         <button class="carousel-btn prev" @click="prevSlide" aria-label="Témoignage précédent">❮</button>
         <div class="carousel">
-          <div class="carousel-inner" :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
-            <div class="card testimonial-card" v-for="testimonial in testimonialsData" :key="testimonial.id">
+          <div class="carousel-inner" :style="{ transform: `translateX(-${currentSlide * (100 / 3)}%)` }">
+            <div class="card testimonial-card" v-for="(testimonial, index) in testimonialsData" :key="testimonial.id"
+              :class="{ 'center': index === (currentSlide % testimonialsData.length), 'left': index === ((currentSlide - 1 + testimonialsData.length) % testimonialsData.length), 'right': index === ((currentSlide + 1) % testimonialsData.length) }">
               <div class="testimonial-avatar">
                 <img :src="testimonial.avatar" :alt="`Avatar de ${testimonial.author.split(',')[0]}`"
                   class="avatar-img">
@@ -76,7 +77,10 @@ const allItems = computed(() => {
   // Limiter à un seul service et un seul produit
   const service = servicesData.length > 0 ? [servicesData[0]] : [];
   const product = productsData.length > 0 ? [productsData[0]] : [];
-  return [...service, ...product];
+  return [...service, ...product].map(item => ({
+    ...item,
+    link: item.id.startsWith('reeduc') || item.id.startsWith('massage') || item.id.startsWith('consult') ? '/services' : '/products'
+  }));
 });
 const testimonialsData = ref(testimonialsDataRaw);
 
@@ -99,7 +103,7 @@ onMounted(() => {
 
 // Gestion du carrousel
 const currentSlide = ref(0);
-const totalSlides = ref(testimonialsData.value.length);
+const totalSlides = computed(() => Math.ceil(testimonialsData.value.length / 3));
 
 const nextSlide = () => {
   currentSlide.value = (currentSlide.value + 1) % totalSlides.value;
@@ -144,8 +148,8 @@ onMounted(() => {
 
 /* Hero Section avec Parallax */
 .hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=2070&auto=format&fit=crop') no-repeat center/cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)),
+    url('/public/img/consu.jpg') no-repeat center/cover;
   background-attachment: fixed;
   /* Effet de parallax */
   background-position: center;
@@ -324,15 +328,25 @@ onMounted(() => {
   border: 1px solid rgba(74, 112, 75, 0.2);
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  flex: 0 0 100%;
+  flex: 0 0 calc(33.33% - 20px);
   display: flex;
   flex-direction: column;
   align-items: center;
+  transform: translateZ(0);
+  perspective: 1000px;
 }
 
-.testimonial-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+.testimonial-card.center {
+  transform: scale(1.2) translateZ(0);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+.testimonial-card.left,
+.testimonial-card.right {
+  transform: scale(0.9) translateZ(-50px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1;
 }
 
 .testimonial-avatar {
@@ -501,6 +515,18 @@ onMounted(() => {
 
   .testimonial-card {
     flex: 0 0 100%;
+    transform: scale(1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .testimonial-card.center {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .testimonial-card.left,
+  .testimonial-card.right {
+    display: none;
   }
 
   .avatar-img {

@@ -1,16 +1,20 @@
 [
   {
-    "id": 1,
+    "id": "sirop-citron",
     "title": "Sirop de citron",
-    "description": "Un remède naturel pour renforcer l’immunité, parfait pour l’hiver.",
-    "image": "https://images.unsplash.com/photo-1608346131885-8b17e7f36c7e?q=80&w=2070&auto=format&fit=crop",
-    "link": "/products"
+    "description": "Un remède naturel pour renforcer votre immunité et apaiser les maux de gorge. Idéal pour toute la famille, surtout en hiver.",
+    "benefits": "Riche en vitamine C, antioxydant, apaise les irritations.",
+    "price": "10€ (250ml)",
+    "image": "/public/img/siro.png",
+    "icon": "fas fa-lemon"
   },
   {
-    "id": 2,
+    "id": "poudre-gingembre",
     "title": "Poudre de gingembre",
-    "description": "Propriétés anti-inflammatoires pour soulager les douleurs articulaires et musculaires.",
-    "image": "https://images.unsplash.com/photo-1598511757337-24d3c17ec405?q=80&w=2070&auto=format&fit=crop",
-    "link": "/products"
+    "description": "Un anti-inflammatoire naturel puissant, parfait pour améliorer la digestion et soulager les douleurs articulaires.",
+    "benefits": "Stimule la digestion, réduit l’inflammation, booste l’énergie.",
+    "price": "8€ (100g)",
+    "image": "https://images.unsplash.com/photo-1615485290382-441e9d161f72?q=80&w=2070&auto=format&fit=crop",
+    "icon": "fas fa-seedling"
   }
 ]

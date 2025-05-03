@@ -1,9 +1,8 @@
 <template>
-    <nav class="navigation">
+    <nav class="navigation" :class="{ 'hidden': isHidden }">
         <div class="nav-container">
             <!-- Logo ou nom -->
             <router-link to="/" class="logo">
-                
                 <img src="/img/logojpg.jpg" alt="" class="logo-image" />
             </router-link>
 
@@ -27,10 +26,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 
 // État pour gérer l'ouverture/fermeture du menu
 const isMenuOpen = ref(false);
+
+// État pour gérer la visibilité de la navigation
+const isHidden = ref(false);
+let lastScroll = 0;
 
 // Fonction pour basculer le menu
 const toggleMenu = () => {
@@ -41,6 +44,28 @@ const toggleMenu = () => {
 const closeMenu = () => {
     isMenuOpen.value = false;
 };
+
+// Gestion de l'effet de disparition/apparition au scroll
+const handleScroll = () => {
+    const currentScroll = window.scrollY;
+    if (currentScroll > lastScroll && currentScroll > 100) {
+        // Descendre : masquer la navigation
+        isHidden.value = true;
+    } else {
+        // Monter : afficher la navigation
+        isHidden.value = false;
+    }
+    lastScroll = currentScroll <= 0 ? 0 : currentScroll; // Évite les valeurs négatives
+};
+
+// Écouteurs d'événements
+onMounted(() => {
+    window.addEventListener('scroll', handleScroll);
+});
+
+onUnmounted(() => {
+    window.removeEventListener('scroll', handleScroll);
+});
 </script>
 
 <style scoped>
@@ -56,15 +81,23 @@ const closeMenu = () => {
     left: 0;
     width: 100%;
     z-index: 1000;
+    transition: transform 0.3s ease;
+    /* Animation fluide pour la disparition/apparition */
 }
-.logo-image{
+
+.navigation.hidden {
+    transform: translateY(-100%);
+    /* Masque la navigation en la déplaçant vers le haut */
+}
+
+.logo-image {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     margin-right: 10px;
 }
+
 .nav-container {
-    /* max-width: 1200px; */
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -78,7 +111,8 @@ const closeMenu = () => {
     /* Blanc */
     text-decoration: none;
 }
-.router-link-active.logo{
+
+.router-link-active.logo {
     color: #C8102E;
     /* Rouge */
     border-bottom: none;
