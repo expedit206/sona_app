@@ -14,7 +14,6 @@
             <div v-for="product in productsData" :key="product.id" class="product card">
                 <img :src="product.image" :alt="product.title" class="product-image" />
                 <h3>
-                    <i :class="product.icon" class="product-icon"></i>
                     {{ product.title }}
                 </h3>
                 <p class="description">{{ product.description }}</p>
