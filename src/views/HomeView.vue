@@ -177,7 +177,7 @@ onMounted(() => {
 /* Hero Section avec Parallax */
 .hero {
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)),
-    url('/public/img/consu.jpg') no-repeat center/cover;
+    url('/img/consu.jpg') no-repeat center/cover;
   background-attachment: fixed;
   /* Effet de parallax */
   background-position: center;
