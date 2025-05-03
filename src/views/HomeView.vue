@@ -389,18 +389,18 @@ onMounted(() => {
 }
 
 .testimonial-card.center {
-  transform: scale(1.3);
+  transform: scale(.7);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
   z-index: 3;
-  opacity: 1;
+  opacity: .7;
 }
 
 .testimonial-card.left,
 .testimonial-card.right {
-  transform: scale(0.8);
+  transform: scale(1.2);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   z-index: 1;
-  opacity: 0.7;
+  opacity: 1;
 }
 
 .testimonial-avatar {
