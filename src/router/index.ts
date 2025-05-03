@@ -28,11 +28,7 @@ const router = createRouter({
       name: 'contact',
       component: () => import('../views/Contact.vue'),
     },
-    {
-      path: '/todos',
-      name: 'todos',
-      component: () => import('../views/Todos.vue'),
-    },
+ 
     {
       path: '/services',
       name: 'services',
