@@ -48,7 +48,7 @@
             {{ item.title }}
           </h2>
           <p>{{ item.description }}</p>
-          <router-link :to="item.link" class="btn btn-primary">
+          <router-link :to="item.link"  class="btn btn-primary">
             En savoir plus
           </router-link>
         </div>
