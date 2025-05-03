@@ -23,7 +23,6 @@
                 </p>
                 <p class="price">Prix : {{ product.price }}</p>
                 <button class="btn btn-primary">
-                    <i class="fas fa-shopping-cart btn-icon"></i>
                     Commander
                 </button>
             </div>
@@ -32,14 +31,12 @@
         <!-- Section appel à l'action -->
         <section class="cta-section animate-on-scroll">
             <h2 class="section-title">
-                <i class="fas fa-box-open cta-icon"></i>
                 Intéressé par nos produits ?
             </h2>
             <p class="section-text">
                 Contactez-nous pour passer une commande ou pour plus d’informations sur nos remèdes naturels.
             </p>
             <router-link to="/contact" class="btn btn-secondary">
-                <i class="fas fa-envelope btn-icon"></i>
                 Nous contacter
             </router-link>
         </section>

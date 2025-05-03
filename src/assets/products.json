@@ -1,12 +1,19 @@
 [
   {
+    "id": "sirop-citrn",
+    "title": "Produits naturels",
+    "description": "Découvrez notre gamme de produits naturels pour renforcer votre santé et votre bien-être.",
+    "benefits": "Riche en vitamine C, antioxydant, apaise les irritations.",
+    "price": "10€ (250ml)",
+    "image": "./public/img/siro.png"
+  },
+  {
     "id": "sirop-citron",
     "title": "Sirop de citron",
     "description": "Un remède naturel pour renforcer votre immunité et apaiser les maux de gorge. Idéal pour toute la famille, surtout en hiver.",
     "benefits": "Riche en vitamine C, antioxydant, apaise les irritations.",
     "price": "10€ (250ml)",
-    "image": "/public/img/siro.png",
-    "icon": "fas fa-lemon"
+    "image": "./public/img/cacao-cabos.jpg"
   },
   {
     "id": "poudre-gingembre",
@@ -14,7 +21,6 @@
     "description": "Un anti-inflammatoire naturel puissant, parfait pour améliorer la digestion et soulager les douleurs articulaires.",
     "benefits": "Stimule la digestion, réduit l’inflammation, booste l’énergie.",
     "price": "8€ (100g)",
-    "image": "https://images.unsplash.com/photo-1615485290382-441e9d161f72?q=80&w=2070&auto=format&fit=crop",
-    "icon": "fas fa-seedling"
+    "image": "./public/img/cabos.jpeg"
   }
 ]

@@ -14,7 +14,8 @@
     <section class="container details-section">
       <div class="details-content">
         <div class="text-content animate" data-delay="200">
-          <h2 class="section-title">Notre histoire</h2>
+          <h2 class="section-title">
+          </h2>
           <p class="section-text">
             Je suis Sona, kinésithérapeute diplômé avec plus de 10 ans d’expérience dans la rééducation et le bien-être.
             Ma passion pour la nature m’a conduit à explorer les bienfaits des remèdes traditionnels. Aujourd’hui, je
@@ -33,7 +34,8 @@
 
     <!-- Section Mission -->
     <section class="container mission-section animate" data-delay="400">
-      <h2 class="section-title">Notre mission</h2>
+      <h2 class="section-title">
+      </h2>
       <p class="section-text">
         Promouvoir une santé durable en combinant les bienfaits de la kinésithérapie moderne et les vertus des remèdes
         naturels, tout en respectant l’environnement.
@@ -51,8 +53,6 @@ import { onMounted } from 'vue';
 onMounted(() => {
   // Sélectionner tous les éléments avec la classe 'animate'
   const animateElements = document.querySelectorAll('.animate');
-
-  // Config میباشد
 
   // Configurer l'IntersectionObserver
   const observer = new IntersectionObserver(
@@ -144,21 +144,31 @@ onMounted(() => {
 }
 
 .section-title {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   color: #4A704B;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .section-title::after {
   content: '';
-  width: 50px;
+  width: 60px;
   height: 3px;
   background-color: #C8102E;
   position: absolute;
-  bottom: -8px;
-  left: 0;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.section-icon {
+  font-size: 1.8rem;
+  color: #C8102E;
 }
 
 .section-text {
@@ -334,7 +344,11 @@ onMounted(() => {
   }
 
   .section-title {
-    font-size: 1.8rem;
+    font-size: 2rem;
+  }
+
+  .section-icon {
+    font-size: 1.5rem;
   }
 
   .section-text {

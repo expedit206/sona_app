@@ -1,24 +1,19 @@
-<script setup >
-
+<script setup>
 import Footer from './views/components/Footer.vue';
 import Navigation from './views/components/Navigation.vue';
-
-
-</script >
+</script>
 
 <template>
   <div id="main">
-
-
     <Navigation />
     <div class="content">
-
       <router-view />
     </div>
-    <!-- Bouton Call-to-Action Flottant -->
-    <router-link to="/contact" class="floating-btn" aria-label="Prendre rendez-vous">Prendre rendez-vous</router-link>
-  <Footer />
-
+    <!-- Bouton Call-to-Action Flottant avec icône -->
+    <router-link to="/contact" class="floating-btn" aria-label="Prendre rendez-vous">
+      <i class="fas fa-calendar-check"></i> Prendre rendez-vous
+    </router-link>
+    <Footer />
   </div>
 </template>
 
@@ -38,6 +33,10 @@ import Navigation from './views/components/Navigation.vue';
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease, transform 0.3s ease;
   z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  /* Espacement entre l'icône et le texte */
 }
 
 .floating-btn:hover {
@@ -46,10 +45,16 @@ import Navigation from './views/components/Navigation.vue';
   transform: scale(1.05);
 }
 
-.content{
+.floating-btn i {
+  font-size: 1.2rem;
+  /* Taille de l'icône */
+}
+
+.content {
   margin-top: 2rem;
 }
-#main{
+
+#main {
   margin-top: 60px;
   /* Ajuster la marge supérieure pour le contenu principal */
   padding: 10px;

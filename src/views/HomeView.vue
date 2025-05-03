@@ -44,11 +44,10 @@
             :style="{ background: `url(${item.image}) no-repeat center center`, backgroundSize: 'cover' }">
           </div>
           <h2>
-            <i :class="item.icon" class="card-icon"></i>
             {{ item.title }}
           </h2>
           <p>{{ item.description }}</p>
-          <router-link :to="item.link"  class="btn btn-primary">
+          <router-link :to="item.link" class="btn btn-primary">
             En savoir plus
           </router-link>
         </div>
@@ -62,11 +61,11 @@
       </h2>
       <div class="carousel-container">
         <button class="carousel-btn prev" @click="prevSlide" aria-label="Témoignage précédent">
+          <span>&larr;</span>
         </button>
         <div class="carousel">
-          <div class="carousel-inner" :style="{ transform: `translateX(-${currentSlide * (100 / 3)}%)` }">
-            <div class="card testimonial-card" v-for="(testimonial, index) in testimonialsData" :key="testimonial.id"
-              :class="{ 'center': index === (currentSlide % testimonialsData.length), 'left': index === ((currentSlide - 1 + testimonialsData.length) % testimonialsData.length), 'right': index === ((currentSlide + 1) % testimonialsData.length) }">
+          <div class="carousel-inner" :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
+            <div class="card testimonial-card" v-for="testimonial in testimonialsData" :key="testimonial.id">
               <div class="testimonial-avatar">
                 <img :src="testimonial.avatar" :alt="`Avatar de ${testimonial.author.split(',')[0]}`"
                   class="avatar-img">
@@ -77,6 +76,7 @@
           </div>
         </div>
         <button class="carousel-btn next" @click="nextSlide" aria-label="Témoignage suivant">
+          <span>&rarr;</span>
         </button>
       </div>
     </section>
@@ -121,7 +121,6 @@ onMounted(() => {
 
 // Gestion du carrousel
 const currentSlide = ref(0);
-const totalSlides = computed(() => Math.ceil(testimonialsData.value.length / 3));
 
 const nextSlide = () => {
   currentSlide.value = (currentSlide.value + 1) % testimonialsData.value.length;
@@ -131,15 +130,16 @@ const prevSlide = () => {
   currentSlide.value = (currentSlide.value - 1 + testimonialsData.value.length) % testimonialsData.value.length;
 };
 
-// Défilement automatique (facultatif, toutes les 5 secondes)
+// Défilement automatique
 onMounted(() => {
   let autoSlide = setInterval(() => {
     nextSlide();
   }, 5000);
 
   // Arrête le défilement automatique si l'utilisateur interagit
-  document.querySelector('.carousel-container')?.addEventListener('mouseover', () => clearInterval(autoSlide));
-  document.querySelector('.carousel-container')?.addEventListener('mouseout', () => {
+  const carouselContainer = document.querySelector('.carousel-container');
+  carouselContainer?.addEventListener('mouseover', () => clearInterval(autoSlide));
+  carouselContainer?.addEventListener('mouseout', () => {
     autoSlide = setInterval(() => nextSlide(), 5000);
   });
 });
@@ -149,7 +149,6 @@ onMounted(() => {
 /* Conteneur principal */
 .home {
   background: linear-gradient(180deg, #F5F5F5 0%, #FFFFFF 100%);
-  /* Dégradé subtil */
 }
 
 /* Animations au scroll */
@@ -169,7 +168,6 @@ onMounted(() => {
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)),
     url('/img/consu.jpg') no-repeat center/cover;
   background-attachment: fixed;
-  /* Effet de parallax */
   background-position: center;
   padding: 80px 20px;
   text-align: center;
@@ -204,16 +202,10 @@ onMounted(() => {
   width: 80px;
   height: 4px;
   background-color: #C8102E;
-  /* Rouge */
   position: absolute;
   bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
-}
-
-.hero-icon {
-  font-size: 2.5rem;
-  color: #C8102E;
 }
 
 .hero-subtitle {
@@ -242,7 +234,6 @@ onMounted(() => {
   font-weight: 600;
   margin-bottom: 25px;
   color: #4A704B;
-  /* Vert foncé */
   position: relative;
   display: flex;
   align-items: center;
@@ -255,16 +246,10 @@ onMounted(() => {
   width: 60px;
   height: 3px;
   background-color: #C8102E;
-  /* Rouge */
   position: absolute;
   bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
-}
-
-.section-icon {
-  font-size: 1.8rem;
-  color: #C8102E;
 }
 
 .section-text {
@@ -296,7 +281,6 @@ onMounted(() => {
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(74, 112, 75, 0.2);
-  /* Bordure subtile verte */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -325,15 +309,9 @@ onMounted(() => {
   font-weight: 600;
   margin: 20px 20px 10px;
   color: #4A704B;
-  /* Vert foncé */
   display: flex;
   align-items: center;
   gap: 8px;
-}
-
-.card-icon {
-  font-size: 1.4rem;
-  color: #C8102E;
 }
 
 .card p {
@@ -370,27 +348,12 @@ onMounted(() => {
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(74, 112, 75, 0.2);
-  position: relative;
-  flex: 0 0 calc(33.33% - 20px);
+  flex: 0 0 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
-}
-
-.testimonial-card.center {
-  transform: scale(.7);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-  z-index: 3;
-  opacity: .7;
-}
-
-.testimonial-card.left,
-.testimonial-card.right {
-  transform: scale(1.2);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  z-index: 1;
-  opacity: 1;
+  text-align: center;
+  margin: 0 10px;
 }
 
 .testimonial-avatar {
@@ -410,32 +373,18 @@ onMounted(() => {
   transform: scale(1.1);
 }
 
-.quote-icon {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  font-size: 2rem;
-  color: #4A704B;
-  opacity: 0.2;
-}
-
 .quote {
   font-style: italic;
   font-size: 1rem;
   color: #666;
   margin-bottom: 10px;
   line-height: 1.5;
-  position: relative;
-  z-index: 1;
-  text-align: center;
 }
 
 .author {
   font-weight: 500;
   font-size: 0.95rem;
   color: #C8102E;
-  /* Rouge */
-  text-align: center;
   margin-top: auto;
 }
 
@@ -453,6 +402,9 @@ onMounted(() => {
   height: 40px;
   z-index: 10;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .carousel-btn:hover {
@@ -461,17 +413,16 @@ onMounted(() => {
 }
 
 .prev {
-  left: -50px;
+  left: 10px;
 }
 
 .next {
-  right: -50px;
+  right: 10px;
 }
 
 /* Boutons */
 .btn-primary {
   background-color: #4A704B;
-  /* Vert foncé */
   color: #FFFFFF;
   padding: 12px 25px;
   border-radius: 5px;
@@ -486,14 +437,12 @@ onMounted(() => {
 
 .btn-primary:hover {
   background-color: #C8102E;
-  /* Rouge */
   transform: scale(1.05);
 }
 
 .btn-secondary {
   background-color: transparent;
   color: #4A704B;
-  /* Vert foncé */
   border: 2px solid #4A704B;
   padding: 12px 25px;
   border-radius: 5px;
@@ -512,10 +461,6 @@ onMounted(() => {
   transform: scale(1.05);
 }
 
-.btn-icon {
-  font-size: 1rem;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
   .hero {
@@ -525,10 +470,6 @@ onMounted(() => {
 
   .hero-title {
     font-size: 2.5rem;
-  }
-
-  .hero-icon {
-    font-size: 2rem;
   }
 
   .hero-subtitle {
@@ -542,10 +483,6 @@ onMounted(() => {
 
   .section-title {
     font-size: 2rem;
-  }
-
-  .section-icon {
-    font-size: 1.5rem;
   }
 
   .section-text {
@@ -564,34 +501,17 @@ onMounted(() => {
     font-size: 1.4rem;
   }
 
-  .card-icon {
-    font-size: 1.2rem;
-  }
-
   .card p {
     font-size: 0.95rem;
   }
 
-  .carousel-btn {
-    display: none;
-    /* Masquer les boutons sur mobile pour simplifier */
+  .carousel-container {
+    padding: 0 10px;
   }
 
   .testimonial-card {
     flex: 0 0 100%;
-    transform: scale(1);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    opacity: 1;
-  }
-
-  .testimonial-card.center {
-    transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  }
-
-  .testimonial-card.left,
-  .testimonial-card.right {
-    display: none;
+    margin: 0 5px;
   }
 
   .avatar-img {
@@ -603,8 +523,18 @@ onMounted(() => {
     font-size: 0.95rem;
   }
 
-  .quote-icon {
-    font-size: 1.8rem;
+  .carousel-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+
+  .prev {
+    left: 5px;
+  }
+
+  .next {
+    right: 5px;
   }
 
   .btn-primary,
@@ -612,9 +542,11 @@ onMounted(() => {
     padding: 10px 20px;
     font-size: 0.9rem;
   }
+}
 
-  .btn-icon {
-    font-size: 0.9rem;
+@media (min-width: 769px) {
+  .testimonial-card {
+    flex: 0 0 calc(33.33% - 20px);
   }
 }
 </style>

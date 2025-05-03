@@ -13,7 +13,6 @@
             <div v-for="service in servicesData" :key="service.id" class="service card">
                 <img :src="service.image" :alt="service.title" class="service-image" />
                 <h2>
-                    <i :class="service.icon" class="service-icon"></i>
                     {{ service.title }}
                 </h2>
                 <p>{{ service.description }}</p>
@@ -49,14 +48,12 @@
         <!-- Section CTA -->
         <section class="cta-section animate-on-scroll">
             <h2 class="section-title">
-                <i class="fas fa-calendar-check cta-icon"></i>
                 Prêt à prendre soin de vous ?
             </h2>
             <p class="section-text">
                 Contactez-nous pour réserver une séance ou pour plus d’informations sur nos services.
             </p>
             <router-link to="/contact" class="btn btn-primary">
-                <i class="fas fa-phone-alt btn-icon"></i>
                 Prendre rendez-vous
             </router-link>
         </section>
