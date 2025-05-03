@@ -29,7 +29,7 @@
     <section class="container services-products animate-on-scroll">
       <h2 class="section-title">Nos expertises</h2>
       <div class="sections">
-        <div class="card" v-for="item in productsAndServices" :key="item.id">
+        <div class="card" v-for="item in allItems" :key="item.id">
           <div class="card-image"
             :style="{ background: `url(${item.image}) no-repeat center center`, backgroundSize: 'cover' }">
           </div>
@@ -47,28 +47,14 @@
         <button class="carousel-btn prev" @click="prevSlide" aria-label="Témoignage précédent">❮</button>
         <div class="carousel">
           <div class="carousel-inner" :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
-            <div class="card testimonial-card">
+            <div class="card testimonial-card" v-for="testimonial in testimonialsData" :key="testimonial.id">
               <div class="testimonial-avatar">
-                <img :src="`https://www.gravatar.com/avatar/${md5('support@wpbeginner.com')}?d=mp&s=60`"
-                  alt="Avatar de Marie" class="avatar-img">
+                <img :src="testimonial.avatar" :alt="`Avatar de ${testimonial.author.split(',')[0]}`"
+                  class="avatar-img">
               </div>
               <span class="quote-icon">“</span>
-              <p class="quote">
-                Les séances de kinésithérapie m’ont redonné une mobilité que je pensais perdue. Merci Sona !
-              </p>
-              <p class="author">— Marie, 45 ans</p>
-            </div>
-            <div class="card testimonial-card">
-              <div class="testimonial-avatar">
-                <img
-                  :src="`https://gravatar.com/avatar/27205e5c51cb03f862138b22bcb5dc20f94a342e744ff6df1b8dc8af3c865109?s=200`"
-                  alt="Avatar de Paul" class="avatar-img">
-              </div>
-              <span class="quote-icon">“</span>
-              <p class="quote">
-                Le sirop de citron est incroyable pour renforcer mon système immunitaire, surtout en hiver.
-              </p>
-              <p class="author">— Paul, 32 ans</p>
+              <p class="quote">{{ testimonial.quote }}</p>
+              <p class="author">— {{ testimonial.author }}</p>
             </div>
           </div>
         </div>
@@ -79,13 +65,20 @@
 </template>
 
 <script setup lang="ts">
-import md5 from 'md5'; // Assurez-vous d'installer la bibliothèque md5 via npm install md5
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 
-// Charger les données JSON pour les produits et services
-import productsAndServicesData from '@/assets/products-services.json';
+// Charger les données JSON
+import servicesData from '@/assets/services.json';
+import productsData from '@/assets/products.json';
+import testimonialsDataRaw from '@/assets/testimonials.json';
 
-const productsAndServices = ref(productsAndServicesData);
+const allItems = computed(() => {
+  // Limiter à un seul service et un seul produit
+  const service = servicesData.length > 0 ? [servicesData[0]] : [];
+  const product = productsData.length > 0 ? [productsData[0]] : [];
+  return [...service, ...product];
+});
+const testimonialsData = ref(testimonialsDataRaw);
 
 // Gestion des animations au scroll avec Intersection Observer
 onMounted(() => {
@@ -106,14 +99,14 @@ onMounted(() => {
 
 // Gestion du carrousel
 const currentSlide = ref(0);
-const totalSlides = 2; // Nombre total de témoignages
+const totalSlides = ref(testimonialsData.value.length);
 
 const nextSlide = () => {
-  currentSlide.value = (currentSlide.value + 1) % totalSlides;
+  currentSlide.value = (currentSlide.value + 1) % totalSlides.value;
 };
 
 const prevSlide = () => {
-  currentSlide.value = (currentSlide.value - 1 + totalSlides) % totalSlides;
+  currentSlide.value = (currentSlide.value - 1 + totalSlides.value) % totalSlides.value;
 };
 
 // Défilement automatique (facultatif, toutes les 5 secondes)
