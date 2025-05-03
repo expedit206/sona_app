@@ -4,7 +4,7 @@
     <section class="hero animate-on-scroll">
       <div class="hero-content">
         <h1 class="hero-title">
-          <i class="fas fa-heart hero-icon"></i>
+          <!-- <i class="fas fa-heart hero-icon"></i> -->
           Bienvenue chez Sona
         </h1>
         <p class="hero-subtitle">
@@ -14,7 +14,7 @@
         <div class="hero-buttons">
           <router-link to="/services" class="btn btn-primary">
             Découvrir nos soins
-            <i class="fa fa-chevron-right btn-icon"></i>
+            <!-- <i class="fa fa-chevron-right btn-icon"></i> -->
           </router-link>
         </div>
       </div>
@@ -23,7 +23,7 @@
     <!-- Section À propos rapide -->
     <section class="container about-section animate-on-scroll">
       <h2 class="section-title">
-        <i class="fas fa-users section-icon"></i>
+        <!-- <i class="fas fa-users section-icon"></i> -->
         Qui sommes-nous ?
       </h2>
       <p class="section-text">
@@ -33,14 +33,14 @@
       </p>
       <router-link to="/about" class="btn btn-secondary">
         En savoir plus sur notre histoire
-        <i class="fa fa-book btn-icon"></i>
+        <!-- <i class="fa fa-book btn-icon"></i> -->
       </router-link>
     </section>
 
     <!-- Section Services et Produits -->
     <section class="container services-products animate-on-scroll">
       <h2 class="section-title">
-        <i class="fas fa-star section-icon"></i>
+        <!-- <i class="fas fa-star section-icon"></i> -->
         Nos expertises
       </h2>
       <div class="sections">
@@ -55,7 +55,7 @@
           <p>{{ item.description }}</p>
           <router-link :to="item.link" class="btn btn-primary">
             En savoir plus
-            <i class="fa fa-chevron-right btn-icon"></i>
+            <!-- <i class="fa fa-chevron-right btn-icon"></i> -->
           </router-link>
         </div>
       </div>
@@ -64,12 +64,12 @@
     <!-- Section Témoignages avec Carrousel -->
     <section class="container testimonials animate-on-scroll">
       <h2 class="section-title">
-        <i class="fas fa-comments section-icon"></i>
+        <!-- <i class="fas fa-comments section-icon"></i> -->
         Ce que disent nos clients
       </h2>
       <div class="carousel-container">
         <button class="carousel-btn prev" @click="prevSlide" aria-label="Témoignage précédent">
-          <i class="fa fa-chevron-left"></i>
+          <!-- <i class="fa fa-chevron-left"></i> -->
         </button>
         <div class="carousel">
           <div class="carousel-inner" :style="{ transform: `translateX(-${currentSlide * (100 / 3)}%)` }">
@@ -79,14 +79,14 @@
                 <img :src="testimonial.avatar" :alt="`Avatar de ${testimonial.author.split(',')[0]}`"
                   class="avatar-img">
               </div>
-              <i class="fas fa-quote-left quote-icon"></i>
+              <!-- <i class="fas fa-quote-left quote-icon"></i> -->
               <p class="quote">{{ testimonial.quote }}</p>
               <p class="author">— {{ testimonial.author }}</p>
             </div>
           </div>
         </div>
         <button class="carousel-btn next" @click="nextSlide" aria-label="Témoignage suivant">
-          <i class="fas fa-chevron-right"></i>
+          <!-- <i class="fas fa-chevron-right"></i> -->
         </button>
       </div>
     </section>
