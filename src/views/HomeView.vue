@@ -171,7 +171,7 @@ onMounted(() => {
   background-position: center;
   padding: 80px 20px;
   text-align: center;
-  color: #FFFFFF;
+  color: #FFFFFF; 
   min-height: 600px;
   display: flex;
   align-items: center;
