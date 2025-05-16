@@ -174,7 +174,7 @@ onMounted(() => {
   color: #FFFFFF; 
   min-height: 600px;
   display: flex;
-  align-items: center;
+  align-items: center ; 
   box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
