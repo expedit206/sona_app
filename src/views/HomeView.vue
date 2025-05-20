@@ -178,7 +178,7 @@ onMounted(() => {
   box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
-.hero-content  {
+.hero-content  { 
   max-width: 1000px;
   margin: 0 auto;
   position: relative;
