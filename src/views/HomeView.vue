@@ -180,6 +180,7 @@ onMounted(() => {
 
 .hero-content  { 
   max-width: 1000px; 
+  
   margin: 0 auto;
   position: relative;
   z-index: 1;
